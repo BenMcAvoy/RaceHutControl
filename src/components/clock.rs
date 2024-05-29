@@ -15,7 +15,7 @@ impl Component for Clock {
         self.datetime = chrono::Local::now().format("%e %B %Y @ %T").to_string();
     }
 
-    fn draw(&self, ui: &mut egui::Ui, _ctx: &egui::Context) {
+    fn draw(&mut self, ui: &mut egui::Ui, _ctx: &egui::Context) {
         ui.label(&self.datetime);
     }
 }

@@ -6,5 +6,5 @@ pub trait Component {
         Self: Sized;
 
     fn update(&mut self, ctx: &egui::Context);
-    fn draw(&self, ui: &mut egui::Ui, ctx: &egui::Context);
+    fn draw(&mut self, ui: &mut egui::Ui, ctx: &egui::Context);
 }

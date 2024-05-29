@@ -19,7 +19,7 @@ impl Component for Header {
         self.clock.update(ctx);
     }
 
-    fn draw(&self, ui: &mut egui::Ui, ctx: &egui::Context) {
+    fn draw(&mut self, ui: &mut egui::Ui, ctx: &egui::Context) {
         ui.with_layout(egui::Layout::top_down(egui::Align::Center), |ui| {
             ui.heading(HEADER);
             self.clock.draw(ui, ctx);
@@ -28,4 +28,3 @@ impl Component for Header {
         ui.separator();
     }
 }
-

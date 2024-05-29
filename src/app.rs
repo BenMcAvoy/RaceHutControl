@@ -10,7 +10,7 @@ pub struct App {
 impl Default for App {
     fn default() -> Self {
         Self {
-            components: vec![Box::new(Header::new())],
+            components: vec![Box::new(Header::new()), Box::new(ClassList::new())],
         }
     }
 }

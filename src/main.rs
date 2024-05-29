@@ -1,6 +1,7 @@
 use eframe::egui;
 
 mod app;
+mod classes;
 mod component;
 mod components;
 mod window;
