@@ -1,5 +1,5 @@
 use crate::classes::*;
-use crate::{component::Component, egui};
+use crate::{egui, traits::Component};
 
 pub struct ClassList {
     pub classes: Vec<String>,

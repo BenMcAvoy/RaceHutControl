@@ -1,17 +1,21 @@
 use eframe::egui;
 
-use crate::component::Component;
-use crate::components::all::*;
+use crate::components::next_page::NextPage;
+use crate::pages::all::*;
+use crate::traits::{Component, Page, PageV};
 
 pub struct App {
-    components: Vec<Box<dyn Component>>,
+    pages: Vec<PageV>,
+    next_page: NextPage,
 }
 
 impl Default for App {
     fn default() -> Self {
-        Self {
-            components: vec![Box::new(Header::new()), Box::new(ClassList::new())],
-        }
+        let pages: Vec<PageV> = vec![Box::new(Setup::new())];
+        let mut next_page = NextPage::new();
+        next_page.pages_len = Some(pages.len());
+
+        Self { pages, next_page }
     }
 }
 
@@ -20,10 +24,11 @@ impl eframe::App for App {
         ctx.request_repaint();
 
         egui::CentralPanel::default().show(ctx, |ui| {
-            for component in self.components.iter_mut() {
-                component.update(ctx);
-                component.draw(ui, ctx);
-            }
+            let page = &mut self.pages[self.next_page.page_id.lock().unwrap().clone()];
+            page.update(ctx);
+            page.draw(ui, ctx);
+
+            self.next_page.draw(ui, ctx);
         });
     }
 }

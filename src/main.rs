@@ -2,8 +2,9 @@ use eframe::egui;
 
 mod app;
 mod classes;
-mod component;
 mod components;
+mod pages;
+mod traits;
 mod window;
 
 fn main() -> Result<(), eframe::Error> {

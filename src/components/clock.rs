@@ -1,4 +1,4 @@
-use crate::{component::Component, egui};
+use crate::{egui, traits::Component};
 
 pub struct Clock {
     datetime: String,
