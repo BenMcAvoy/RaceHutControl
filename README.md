@@ -1,31 +1,21 @@
-# Race Hut Control
+# RaceHutControl
 
-A piece of software to control race hut lights for sailing.
+RaceHutControl is an early desktop UI prototype for a sailing race hut control system. The current application is built with Rust and `egui` through `eframe`.
 
-## Dependencies
+At this stage, it is a class-list setup screen: you can choose from the built-in class names and add or remove them in the interface. Hardware and light control, configuration files, and saving the list between runs are not implemented yet.
 
-```bash
-sudo apt install libclang-dev libgtk-3-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev libssl-dev
-```
+## Build and run
 
-## Usage
+You will need a Rust toolchain with Cargo. Clone the repository and start the application with:
 
-Edit `lights.toml` and put in the BCM values for each pin in/out. (or read the file and connect the lights to the default positions)
-
-Launch the program and it will open in fullscreen. It may be desired to make this autostart for kiosk purposes. 
-
-## Contribution
-
-The repository uses [Conventional Commits](https://conventionalcommits.org) and any contributions should follow the same style.
-
-## Building
-
-```bash
+```sh
 git clone https://github.com/BenMcAvoy/RaceHutControl.git
 cd RaceHutControl
-cargo build --release
+cargo run
 ```
 
-## Contact
+The window currently opens in fullscreen mode. To build an optimized binary, run `cargo build --release`.
 
-For any queries please contact me at `ben.mcavoy@tutanota.com`
+## Project status
+
+This is a work in progress and does not yet control physical race hut lights. The UI is a first step toward shaping the setup workflow before connecting it to hardware.
